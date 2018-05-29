@@ -1,9 +1,9 @@
 'use strict';
 
 const emitter = () => {
-  const events = { 
-    before: new Map(), 
-    after: new Map() 
+  const events = {
+    before: new Map(),
+    after: new Map()
   };
   const wrapped = {
     before: new Map(),
@@ -13,7 +13,9 @@ const emitter = () => {
     on: {
       before: (name, f) => {
         const event = events.before.get(name);
-        if (!event) events.before.set(name, [f]);
+        if (!event) {
+          events.before.set(name, [f]);
+        }
         else {
           event.push(f);
           events.before.set(name, event);
@@ -21,7 +23,9 @@ const emitter = () => {
       },
       after: (name, f) => {
         const event = events.after.get(name);
-        if (!event) events.after.set(name, [f]);
+        if (!event) {
+          events.after.set(name, [f]);
+        }
         else {
           event.push(f);
           events.after.set(name, event);
@@ -184,6 +188,3 @@ ee.on.after('e7', () => {});
 console.log('listeners.before', ee.listeners.before('e5'));
 console.log('listeners.after', ee.listeners.after('e5'));
 console.log('names', ee.names.after());
-
-
-

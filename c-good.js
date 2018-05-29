@@ -1,10 +1,11 @@
 'use strict';
+
 const emitter = require('./ee.js');
+
 function Transaction() {}
 
 Transaction.start = (data) => {
   console.log('start transaction');
-  //const events = { commit: [], rollback: [], timeout: [], change: [] };
   let delta = {};
 
   const methods = {
