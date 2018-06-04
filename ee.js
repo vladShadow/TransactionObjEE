@@ -15,8 +15,7 @@ const emitter = () => {
         const event = events.before.get(name);
         if (!event) {
           events.before.set(name, [f]);
-        }
-        else {
+        } else {
           event.push(f);
           events.before.set(name, event);
         }
@@ -25,8 +24,7 @@ const emitter = () => {
         const event = events.after.get(name);
         if (!event) {
           events.after.set(name, [f]);
-        }
-        else {
+        } else {
           event.push(f);
           events.after.set(name, event);
         }
